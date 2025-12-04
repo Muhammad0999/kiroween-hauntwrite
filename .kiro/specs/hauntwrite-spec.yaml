@@ -1,0 +1,63 @@
+app:
+  name: "HauntWrite"
+  description: "An AI-powered haunted diary with a polished horror-themed UI for the Kiroween Costume Contest."
+  primary_goal: "Deliver a visually unforgettable, spooky diary experience with smooth animations and strong use of Kiro features."
+
+stack:
+  framework: "Next.js"
+  language: "TypeScript"
+  ui_library: "React"
+  styling: "Tailwind CSS"
+  animations: "Framer Motion"
+  ai_backend: "HTTP API endpoint /api/haunt"
+
+pages:
+  - id: "landing"
+    route: "/"
+    purpose: "Introduce HauntWrite with a cinematic haunted entrance."
+    requirements:
+      - Hero section with animated spooky title
+      - CTA button to enter diary
+      - Floating smoke/shadow background
+      - Glitch text effects
+
+  - id: "diary"
+    route: "/diary"
+    purpose: "Main diary experience and AI haunting."
+    requirements:
+      - "Large textarea for original entry"
+      - "Haunted output panel"
+      - "'Haunt My Entry' button"
+      - "Spookiness intensity slider (0–10)"
+      - "Animated transitions for results"
+
+components:
+  - name: "HauntedLayout"
+    description: "Base layout with dark theme and animated background"
+  - name: "GlitchTitle"
+    description: "Animated glitch-style title component"
+  - name: "DiaryEditor"
+    description: "Textarea + controls + haunted output display"
+  - name: "SpookinessSlider"
+    description: "Controls intensity of haunted output"
+
+ai_behavior:
+  haunt_endpoint: "/api/haunt"
+  prompt_contract:
+    input:
+      - "entry: string"
+      - "intensity: number"
+    output:
+      - "hauntedEntry: string"
+    style_details:
+      - "Narrative must stay readable"
+      - "Higher intensity → more supernatural, eerie tone"
+
+non_functional:
+  performance:
+    - "Load under 3 seconds"
+  polish:
+    - "Strong visual identity"
+    - "Consistent animations"
+  demo:
+    - "All main features shown in under 3 minutes"

@@ -1,0 +1,39 @@
+{
+  "hooks": [
+    {
+      "name": "lint-on-save",
+      "description": "Run ESLint whenever TS/TSX files change.",
+      "trigger": {
+        "event": "onFileSave",
+        "patterns": ["**/*.ts", "**/*.tsx"]
+      },
+      "action": {
+        "type": "shell",
+        "command": "npm run lint"
+      }
+    },
+    {
+      "name": "test-before-commit",
+      "description": "Runs tests before git commits to ensure stability.",
+      "trigger": {
+        "event": "beforeGitCommit"
+      },
+      "action": {
+        "type": "shell",
+        "command": "npm test"
+      }
+    },
+    {
+      "name": "ai-suggest-tests-for-haunt-api",
+      "description": "Whenever /api/haunt is updated, Kiro suggests/generates test cases.",
+      "trigger": {
+        "event": "onFileChange",
+        "patterns": ["app/api/haunt/route.ts"]
+      },
+      "action": {
+        "type": "kiroPrompt",
+        "prompt": "Please review the updated haunt API and generate Jest test cases for edge cases, empty input, and maximum intensity."
+      }
+    }
+  ]
+}
